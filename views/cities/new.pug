@@ -1,0 +1,8 @@
+extends ../shared/template
+block content
+  h1 New City
+  form(action='/cities', method='post')
+    input(type='text', name='name', placeholder='Name')
+    input(type='text', name='photo', placeholder='Photo')
+    input(type='text', name='amount', placeholder='Amount')
+    button(type='submit') Add City
