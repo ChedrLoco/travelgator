@@ -3,3 +3,7 @@ block content
   h1 People
   div
     a(href='/people/new') New
+
+  ul#people
+    each person in people
+      li: a(href='/people/' + person._id)= person.name

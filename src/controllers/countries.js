@@ -16,6 +16,12 @@ router.get('/:id', (req, res) => {
   res.render('countries/show');
 });
 
+router.get('/:id/cities', (req, res) => {
+  Country.findById(req.params.id).populate('cities').exec((err, country) => {
+    res.send({ country });
+  });
+});
+
 router.post('/', (req, res) => {
   const c = new Country(req.body);
   c.photos.push(req.body.photo);
