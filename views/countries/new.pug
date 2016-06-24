@@ -1,0 +1,7 @@
+extends ../shared/template
+block content
+  h1 New Country
+  form(action='/countries', method='post')
+    input(type='text', name='name', placeholder='Name')
+    input(type='text', name='photo', placeholder='Photo')
+    button(type='submit') Add Country
