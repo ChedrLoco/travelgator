@@ -5,4 +5,7 @@ block content
     input(type='text', name='name', placeholder='Name')
     input(type='text', name='photo', placeholder='Photo')
     input(type='text', name='amount', placeholder='Amount')
+    select(name='country')
+      each c in countries
+        option(value=c._id.toString())= c.name
     button(type='submit') Add City
