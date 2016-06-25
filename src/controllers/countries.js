@@ -1,11 +1,11 @@
-/* eslint-disable new-cap */
+/* eslint-disable new-cap, max-len */
 
 import express from 'express';
 import Country from '../models/country';
 const router = module.exports = express.Router();
 
 router.get('/', (req, res) => {
-  res.render('countries/index');
+  Country.find().populate('cities').exec((err, countries) => res.render('countries/index', { countries }));
 });
 
 router.get('/new', (req, res) => {
@@ -13,7 +13,7 @@ router.get('/new', (req, res) => {
 });
 
 router.get('/:id', (req, res) => {
-  res.render('countries/show');
+  Country.findById(req.params.id).populate('cities').exec((err, country) => res.render('countries/show', { country }));
 });
 
 router.get('/:id/cities', (req, res) => {
