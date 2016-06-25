@@ -1,10 +1,25 @@
 extends ../shared/template
 block content
   h1 New Person
-  form(action='/people', method='post')
-    input(type='text', name='name', placeholder='Name')
-    input(type='text', name='age', placeholder='Age')
-    input(type='text', name='gender', placeholder='Gender')
-    input(type='text', name='photo', placeholder='Photo')
-    input(type='text', name='money', placeholder='Money')
-    button(type='submit') Add Person
+
+  .row
+    .col-xs-6
+      form(action='/people', method='post')
+        .form-group
+          label Name
+          input.form-control(type='text', name='name', placeholder='Name')
+        .form-group
+          label Age
+          input.form-control(type='text', name='age', placeholder='Age')
+        .form-group
+          label Gender
+          input.form-control(type='text', name='gender', placeholder='Gender')
+        .form-group
+          label Photo
+          input.form-control(type='text', name='photo', placeholder='Photo')
+        .form-group
+          label Money
+          input.form-control(type='text', name='money', placeholder='Money')
+        .form-group
+        button.btn.btn-success(type='submit'): i.fa.fa-thumbs-up
+    .col-xs-6

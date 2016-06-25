@@ -15,7 +15,7 @@ router.get('/new', (req, res) => {
 });
 
 router.get('/:id', (req, res) => {
-  Person.findById(req.params.id, (err1, person) => {
+  Person.findById(req.params.id).populate('cities').exec((err1, person) => {
     Country.find((err2, countries) => res.render('people/show', { person, countries }));
   });
 });
